@@ -21,3 +21,14 @@ const getAdmins = () => {
 }
 
 getAdmins(myMap)
+
+const getAdmins2 = (map) => {
+    let admin = [];
+    for([key, value] of map){
+        if(value === 'admin')
+        admin.push(key)
+    }
+    console.log(admin)
+}
+
+getAdmins2(myMap)
