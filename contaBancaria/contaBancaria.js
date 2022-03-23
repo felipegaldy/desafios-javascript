@@ -12,7 +12,7 @@ class contaBancaria {
     set saldo(valor){
         this._saldo = valor; 
     }
-//3. Dentro de `ContaBancaria`, crie os métodos `sacar` e `depositar`;
+// Dentro de `ContaBancaria`, crie os métodos `sacar` e `depositar`;
     sacar(valor){
         if(this.valor > this._saldo) throw RangeError('Saldo Insuficiente');
 
