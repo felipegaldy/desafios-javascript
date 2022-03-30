@@ -1,12 +1,26 @@
+
+
 var input = require('fs').readFileSync('stdin','utf8');
 var lines = input.split('\n')
 
-const numTotal = lines.shift();//espaços vazios
-const numFigCompradas = lines.shift();//figurinhas compradas
-const mySet = new Set();
+const c = parseInt(lines.shift());
+var v = new Array(c)
 
-for(let i = 0; i < numFigCompradas; i++){
-    mySet.add(lines.shift());
+for (let i = 0; i < c; i++){
+  v[i] = parseInt(lines.shift());
+}
+
+let  primeiroInscrito = true;
+
+const teste  = Number(v.shift());
+
+
+for(let i = 0; i < c; i++) {
+  const bobo  = Number(v[i]);
+
+  if ( teste < bobo) {
+    primeiroInscrito = false;
+  }
 };
 
-console.log(numTotal - mySet.size);
+console.log(primeiroInscrito ? "S" : "N");
