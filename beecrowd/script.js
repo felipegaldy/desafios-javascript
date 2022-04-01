@@ -3,24 +3,10 @@
 var input = require('fs').readFileSync('stdin','utf8');
 var lines = input.split('\n')
 
-const c = parseInt(lines.shift());
-var v = new Array(c)
+let valor = parseInt(input);
+let horas = parseInt(valor/3600)
+valor = valor%3600
+let minutos = parseInt(valor/60)
+valor = valor%60
 
-for (let i = 0; i < c; i++){
-  v[i] = parseInt(lines.shift());
-}
-
-let  primeiroInscrito = true;
-
-const teste  = Number(v.shift());
-
-
-for(let i = 0; i < c; i++) {
-  const bobo  = Number(v[i]);
-
-  if ( teste < bobo) {
-    primeiroInscrito = false;
-  }
-};
-
-console.log(primeiroInscrito ? "S" : "N");
+console.log(`${horas}:${minutos}:${valor}`)
