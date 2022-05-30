@@ -1,16 +1,20 @@
 var input = require('fs').readFileSync('stdin','utf8');
-var lines = input.split(' ')
+var liduracoesnes = input.split('')
 
-var inicio = parseInt(lines.shift());
-var fim = parseInt(lines.shift());
-
-if (inicio > fim){
-    fim += 24
-    var duracao = fim - inicio
-    console.log(`O JOGO DUROU ${duracao} HORA(S)`)
-}else if (inicio == fim) {
-   console.log('O JOGO DUROU 24 HORA(S)')
-}else {
-    var duracao = fim - inicio
-    console.log(`O JOGO DUROU ${duracao} HORA(S)`)
+function acharMinimoDeDias(duracoes) {
+    // Write your code here
+    duracoes.sort((a,b)=>a-b);
+    let dias = 1;
+    let horas = 0;
+    for(let i = 0; i < duracoes.length; i++){
+            horas += duracoes[i];
+            if (horas >= 3.0){
+                horas -= duracoes[i-1];
+                horas = duracoes[i];
+                dias++
+            }
+    }
+    return dias;
 }
+
+acharMinimoDeDias(lines)
